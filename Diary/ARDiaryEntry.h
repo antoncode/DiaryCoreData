@@ -16,7 +16,7 @@ NS_ENUM (int16_t, ARDiaryEntryMood)
     ARDiaryEntryMoodBad = 2
 };
 
-@interface ARDiaryEntity : NSManagedObject
+@interface ARDiaryEntry : NSManagedObject
 
 @property (nonatomic) NSTimeInterval date;
 @property (nonatomic, retain) NSString * body;

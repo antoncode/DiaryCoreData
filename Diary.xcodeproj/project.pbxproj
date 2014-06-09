@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A57129D1945217900148761 /* ARDiaryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A57129C1945217900148761 /* ARDiaryEntity.m */; };
+		3A57129D1945217900148761 /* ARDiaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A57129C1945217900148761 /* ARDiaryEntry.m */; };
 		3ABC8A0C19451A0200C89841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC8A0B19451A0200C89841 /* Foundation.framework */; };
 		3ABC8A0E19451A0200C89841 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC8A0D19451A0200C89841 /* CoreGraphics.framework */; };
 		3ABC8A1019451A0200C89841 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC8A0F19451A0200C89841 /* UIKit.framework */; };
@@ -24,6 +24,8 @@
 		3ABC8A3519451A0200C89841 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3ABC8A3319451A0200C89841 /* InfoPlist.strings */; };
 		3ABC8A3719451A0200C89841 /* DiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC8A3619451A0200C89841 /* DiaryTests.m */; };
 		3ABC8A4219451B1000C89841 /* ARCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC8A4119451B1000C89841 /* ARCoreDataStack.m */; };
+		3ABC8A4619457EFF00C89841 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ABC8A4519457EFF00C89841 /* MainStoryboard.storyboard */; };
+		3ABC8A491945802D00C89841 /* ARNewEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC8A481945802D00C89841 /* ARNewEntryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3A57129B1945217900148761 /* ARDiaryEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDiaryEntity.h; sourceTree = "<group>"; };
-		3A57129C1945217900148761 /* ARDiaryEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDiaryEntity.m; sourceTree = "<group>"; };
+		3A57129B1945217900148761 /* ARDiaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDiaryEntry.h; sourceTree = "<group>"; };
+		3A57129C1945217900148761 /* ARDiaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDiaryEntry.m; sourceTree = "<group>"; };
 		3ABC8A0819451A0200C89841 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ABC8A0B19451A0200C89841 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3ABC8A0D19451A0200C89841 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,6 +61,9 @@
 		3ABC8A3619451A0200C89841 /* DiaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiaryTests.m; sourceTree = "<group>"; };
 		3ABC8A4019451B1000C89841 /* ARCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCoreDataStack.h; sourceTree = "<group>"; };
 		3ABC8A4119451B1000C89841 /* ARCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCoreDataStack.m; sourceTree = "<group>"; };
+		3ABC8A4519457EFF00C89841 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		3ABC8A471945802D00C89841 /* ARNewEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARNewEntryViewController.h; sourceTree = "<group>"; };
+		3ABC8A481945802D00C89841 /* ARNewEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARNewEntryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +132,11 @@
 				3ABC8A1D19451A0200C89841 /* ARAppDelegate.m */,
 				3ABC8A2219451A0200C89841 /* Images.xcassets */,
 				3ABC8A1F19451A0200C89841 /* Diary.xcdatamodeld */,
-				3A57129B1945217900148761 /* ARDiaryEntity.h */,
-				3A57129C1945217900148761 /* ARDiaryEntity.m */,
+				3A57129B1945217900148761 /* ARDiaryEntry.h */,
+				3A57129C1945217900148761 /* ARDiaryEntry.m */,
+				3ABC8A4519457EFF00C89841 /* MainStoryboard.storyboard */,
+				3ABC8A471945802D00C89841 /* ARNewEntryViewController.h */,
+				3ABC8A481945802D00C89841 /* ARNewEntryViewController.m */,
 				3ABC8A1419451A0200C89841 /* Supporting Files */,
 			);
 			path = Diary;
@@ -239,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABC8A4619457EFF00C89841 /* MainStoryboard.storyboard in Resources */,
 				3ABC8A1819451A0200C89841 /* InfoPlist.strings in Resources */,
 				3ABC8A2319451A0200C89841 /* Images.xcassets in Resources */,
 			);
@@ -262,8 +271,9 @@
 				3ABC8A4219451B1000C89841 /* ARCoreDataStack.m in Sources */,
 				3ABC8A2119451A0200C89841 /* Diary.xcdatamodeld in Sources */,
 				3ABC8A1A19451A0200C89841 /* main.m in Sources */,
-				3A57129D1945217900148761 /* ARDiaryEntity.m in Sources */,
+				3A57129D1945217900148761 /* ARDiaryEntry.m in Sources */,
 				3ABC8A1E19451A0200C89841 /* ARAppDelegate.m in Sources */,
+				3ABC8A491945802D00C89841 /* ARNewEntryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
