@@ -22,7 +22,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    if (self.entry != nil) {
+        self.textField.text = self.entry.body;
+    }
 }
 
 - (void)dismissSelf
@@ -39,9 +42,21 @@
     [coreDataStack saveContext];
 }
 
+- (void)updateDiaryEntry
+{
+    self.entry.body = self.textField.text;
+    
+    ARCoreDataStack *coreDataStack = [ARCoreDataStack defaultStack];
+    [coreDataStack saveContext];
+}
+
 - (IBAction)doneWasPressed:(id)sender
 {
-    [self insertDiaryEntry];
+    if (self.entry != nil) {
+        [self updateDiaryEntry];
+    } else {
+        [self insertDiaryEntry];
+    }
     [self dismissSelf];
 }
 

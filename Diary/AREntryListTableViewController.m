@@ -9,6 +9,7 @@
 #import "AREntryListTableViewController.h"
 #import "ARCoreDataStack.h"
 #import "ARDiaryEntry.h"
+#import "ARNewEntryViewController.h"
 
 @interface AREntryListTableViewController () <NSFetchedResultsControllerDelegate>
 
@@ -142,6 +143,20 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"edit"]) {
+        UITableViewCell *cell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        UINavigationController *navigationController = segue.destinationViewController;
+        ARNewEntryViewController *entryViewController = (ARNewEntryViewController *)navigationController.topViewController;
+        
+        entryViewController.entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    }
 }
 
 @end

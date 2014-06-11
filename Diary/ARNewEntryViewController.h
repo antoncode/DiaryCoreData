@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+// Don't import model header files into view controller header files.  Instead use @class declaration.
+@class ARDiaryEntry;
 
 @interface ARNewEntryViewController : UIViewController
+
+@property (nonatomic, strong) ARDiaryEntry *entry;
 
 @end

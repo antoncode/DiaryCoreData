@@ -20,6 +20,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="icM-S5-hbg" kind="modal" identifier="edit" id="pOB-v1-Geh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -37,7 +40,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Suw-4H-t3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939" y="54"/>
+            <point key="canvasLocation" x="939" y="123"/>
         </scene>
         <!--New Entry View Controller-->
         <scene sceneID="O84-m4-HkR">
@@ -92,7 +95,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVm-SE-GCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="405" y="54"/>
+            <point key="canvasLocation" x="440" y="123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3uS-HA-82u">
@@ -118,4 +121,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="pOB-v1-Geh"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -131,6 +131,8 @@
 			children = (
 				3A7CE76019480E8900BF5BDE /* AREntryListTableViewController.h */,
 				3A7CE76119480E8900BF5BDE /* AREntryListTableViewController.m */,
+				3ABC8A471945802D00C89841 /* ARNewEntryViewController.h */,
+				3ABC8A481945802D00C89841 /* ARNewEntryViewController.m */,
 				3ABC8A4019451B1000C89841 /* ARCoreDataStack.h */,
 				3ABC8A4119451B1000C89841 /* ARCoreDataStack.m */,
 				3ABC8A1C19451A0200C89841 /* ARAppDelegate.h */,
@@ -140,8 +142,6 @@
 				3A57129B1945217900148761 /* ARDiaryEntry.h */,
 				3A57129C1945217900148761 /* ARDiaryEntry.m */,
 				3ABC8A4519457EFF00C89841 /* MainStoryboard.storyboard */,
-				3ABC8A471945802D00C89841 /* ARNewEntryViewController.h */,
-				3ABC8A481945802D00C89841 /* ARNewEntryViewController.m */,
 				3ABC8A1419451A0200C89841 /* Supporting Files */,
 			);
 			path = Diary;
