@@ -86,6 +86,22 @@
     return [sectionInfo name];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ARDiaryEntry *entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    ARCoreDataStack *coreDataStack = [ARCoreDataStack defaultStack];
+    [[coreDataStack managedObjectContext] deleteObject:entry];
+    [coreDataStack saveContext];
+}
+
+#pragma mark - Table view delegate
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
 #pragma mark - NSFetchedResultsControllerDelegate
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
