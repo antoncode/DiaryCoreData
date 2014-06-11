@@ -22,13 +22,36 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     [self.fetchedResultsController performFetch:nil];
+}
+
+- (NSFetchRequest *)entryListFetchRequest
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"ARDiaryEntry"];
+    
+    // Array of sort descriptors with only one object
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
+    
+    return fetchRequest;
+}
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    // Override fetchedresultscontroller getter using lazy loading
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    ARCoreDataStack *coreDataStack = [ARCoreDataStack defaultStack];
+    NSFetchRequest *fetchRequest = [self entryListFetchRequest];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                    managedObjectContext:coreDataStack.managedObjectContext
+                                                                      sectionNameKeyPath:@"sectionName"
+                                                                               cacheName:nil];
+    _fetchedResultsController.delegate = self;
+    
+    return _fetchedResultsController;
 }
 
 #pragma mark - Table view data source
@@ -56,34 +79,11 @@
     return cell;
 }
 
-
-- (NSFetchRequest *)entryListFetchRequest
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"ARDiaryEntry"];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     
-    // Array of sort descriptors with only one object
-    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
-    
-    return fetchRequest;
-}
-
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    // Override fetchedresultscontroller getter using lazy loading
-    if (_fetchedResultsController != nil) {
-        return _fetchedResultsController;
-    }
-    
-    ARCoreDataStack *coreDataStack = [ARCoreDataStack defaultStack];
-    NSFetchRequest *fetchRequest = [self entryListFetchRequest];
-    
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                    managedObjectContext:coreDataStack.managedObjectContext
-                                                                      sectionNameKeyPath:nil
-                                                                               cacheName:nil];
-    _fetchedResultsController.delegate = self;
-    
-    return _fetchedResultsController;
+    return [sectionInfo name];
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -94,15 +94,15 @@
     [self.tableView reloadData];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end
+
+
+
+
+
+
+
+
+
+
+
