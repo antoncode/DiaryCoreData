@@ -30,6 +30,7 @@
     
     UIFont *font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
     
+    // determines the amount of space required to draw a given piece of text using the specified contraints.
     CGRect boundingBox = [entry.body boundingRectWithSize:CGSizeMake(202, CGFLOAT_MAX)
                                                   options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin)
                                                attributes:@{NSFontAttributeName: font}
@@ -44,7 +45,7 @@
     self.locationLabel.text = entry.location;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEEE, MMMMM d yyyy"];
+    [dateFormatter setDateFormat:@"EEEE, MMMM d yyyy"];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:entry.date];
     
     self.dateLabel.text = [dateFormatter stringFromDate:date];
