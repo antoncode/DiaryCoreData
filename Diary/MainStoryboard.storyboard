@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="14A238x" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zwF-N7-ZSh">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
-        <!--Entry List Table View Controller - Root View Controller-->
+        <!--Entry List Table View Controller - Diary Entries-->
         <scene sceneID="k8Q-j6-gMC">
             <objects>
                 <tableViewController id="Tb9-0T-8Au" customClass="AREntryListTableViewController" sceneMemberID="viewController">
@@ -30,7 +31,7 @@
                             <outlet property="delegate" destination="Tb9-0T-8Au" id="Pv5-BF-kLe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Z5k-Fp-wkR">
+                    <navigationItem key="navigationItem" title="Diary Entries" id="Z5k-Fp-wkR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LsD-WK-EU1">
                             <connections>
                                 <segue destination="icM-S5-hbg" kind="modal" id="lFM-c5-5RY"/>
@@ -85,7 +86,7 @@
         <!--Navigation Controller-->
         <scene sceneID="CTb-yv-qXu">
             <objects>
-                <navigationController definesPresentationContext="YES" id="zwF-N7-ZSh" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="zwF-N7-ZSh" customClass="ARNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Voy-a6-hIA">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -100,7 +101,7 @@
         <!--Navigation Controller-->
         <scene sceneID="3uS-HA-82u">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="icM-S5-hbg" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="icM-S5-hbg" customClass="ARNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9x0-1e-cB4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
