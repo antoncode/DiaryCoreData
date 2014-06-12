@@ -8,6 +8,7 @@
 
 #import "AREntryCell.h"
 #import "ARDiaryEntry.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AREntryCell ()
 
@@ -63,6 +64,8 @@
     } else if (entry.mood == ARDiaryEntryMoodBad) {
         self.moodImageView.image = [UIImage imageNamed:@"icn_bad"];
     }
+    
+    self.mainImageView.layer.cornerRadius = CGRectGetWidth(self.mainImageView.frame) / 2.0f;
 }
 
 @end

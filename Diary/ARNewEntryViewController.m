@@ -52,6 +52,8 @@
     
     // dynamically adds view with mood buttons on top of keyboard
     self.textView.inputAccessoryView = self.accessoryView;
+    
+    self.imageButton.layer.cornerRadius = CGRectGetWidth(self.imageButton.frame) / 2.0f;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -114,7 +116,6 @@
     UIImagePickerController *controller = [UIImagePickerController new];
     controller.sourceType = UIImagePickerControllerSourceTypeCamera;
     controller.delegate = self;
-    
     [self presentViewController:controller animated:YES completion:nil];
 }
 
@@ -123,7 +124,6 @@
     UIImagePickerController *controller = [UIImagePickerController new];
     controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     controller.delegate = self;
-    
     [self presentViewController:controller animated:YES completion:nil];
 }
 # pragma mark - Image picker controller delegate
