@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A57129D1945217900148761 /* ARDiaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A57129C1945217900148761 /* ARDiaryEntry.m */; };
 		3A692BFB19496BD60041C747 /* ARNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A692BFA19496BD60041C747 /* ARNavigationController.m */; };
+		3A692BFE19496FD00041C747 /* AREntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A692BFD19496FD00041C747 /* AREntryCell.m */; };
 		3A7CE76219480E8900BF5BDE /* AREntryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CE76119480E8900BF5BDE /* AREntryListTableViewController.m */; };
 		3ABC8A0C19451A0200C89841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC8A0B19451A0200C89841 /* Foundation.framework */; };
 		3ABC8A0E19451A0200C89841 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC8A0D19451A0200C89841 /* CoreGraphics.framework */; };
@@ -45,6 +46,8 @@
 		3A57129C1945217900148761 /* ARDiaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDiaryEntry.m; sourceTree = "<group>"; };
 		3A692BF919496BD60041C747 /* ARNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARNavigationController.h; sourceTree = "<group>"; };
 		3A692BFA19496BD60041C747 /* ARNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARNavigationController.m; sourceTree = "<group>"; };
+		3A692BFC19496FD00041C747 /* AREntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREntryCell.h; sourceTree = "<group>"; };
+		3A692BFD19496FD00041C747 /* AREntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREntryCell.m; sourceTree = "<group>"; };
 		3A7CE76019480E8900BF5BDE /* AREntryListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREntryListTableViewController.h; sourceTree = "<group>"; };
 		3A7CE76119480E8900BF5BDE /* AREntryListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREntryListTableViewController.m; sourceTree = "<group>"; };
 		3ABC8A0819451A0200C89841 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +141,8 @@
 				3ABC8A481945802D00C89841 /* ARNewEntryViewController.m */,
 				3A692BF919496BD60041C747 /* ARNavigationController.h */,
 				3A692BFA19496BD60041C747 /* ARNavigationController.m */,
+				3A692BFC19496FD00041C747 /* AREntryCell.h */,
+				3A692BFD19496FD00041C747 /* AREntryCell.m */,
 				3ABC8A4019451B1000C89841 /* ARCoreDataStack.h */,
 				3ABC8A4119451B1000C89841 /* ARCoreDataStack.m */,
 				3ABC8A1C19451A0200C89841 /* ARAppDelegate.h */,
@@ -283,6 +288,7 @@
 				3A692BFB19496BD60041C747 /* ARNavigationController.m in Sources */,
 				3ABC8A2119451A0200C89841 /* Diary.xcdatamodeld in Sources */,
 				3ABC8A1A19451A0200C89841 /* main.m in Sources */,
+				3A692BFE19496FD00041C747 /* AREntryCell.m in Sources */,
 				3A57129D1945217900148761 /* ARDiaryEntry.m in Sources */,
 				3ABC8A1E19451A0200C89841 /* ARAppDelegate.m in Sources */,
 				3ABC8A491945802D00C89841 /* ARNewEntryViewController.m in Sources */,

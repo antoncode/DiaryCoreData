@@ -10,6 +10,7 @@
 #import "ARCoreDataStack.h"
 #import "ARDiaryEntry.h"
 #import "ARNewEntryViewController.h"
+#import "AREntryCell.h"
 
 @interface AREntryListTableViewController () <NSFetchedResultsControllerDelegate>
 
@@ -72,10 +73,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    AREntryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     ARDiaryEntry *entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = entry.body;
+    [cell configureCellForEntry:entry];
     
     return cell;
 }
@@ -97,6 +98,12 @@
 }
 
 #pragma mark - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ARDiaryEntry *entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    return [AREntryCell heightForEntry:entry];
+}
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
