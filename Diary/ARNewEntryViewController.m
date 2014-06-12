@@ -10,10 +10,13 @@
 #import "ARDiaryEntry.h"
 #import "ARCoreDataStack.h"
 
-@interface ARNewEntryViewController ()
+@interface ARNewEntryViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic, assign) enum ARDiaryEntryMood pickedMood;
+
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+
+@property (nonatomic, strong) UIImage *pickedImage;
 
 @property (weak, nonatomic) IBOutlet UIButton *badButton;
 @property (weak, nonatomic) IBOutlet UIButton *averageButton;
@@ -21,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet UIView *accessoryView;
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *imageButton;
 
 @end
 
@@ -34,7 +38,7 @@
     NSDate *date;
 
     if (self.entry != nil) {
-        self.textField.text = self.entry.body;
+        self.textView.text = self.entry.body;
         self.pickedMood = self.entry.mood;
         date = [NSDate dateWithTimeIntervalSince1970:self.entry.date];
     } else {
@@ -47,7 +51,14 @@
     self.dateLabel.text = [dateFormatter stringFromDate:date];
     
     // dynamically adds view with mood buttons on top of keyboard
-    self.textField.inputAccessoryView = self.accessoryView;
+    self.textView.inputAccessoryView = self.accessoryView;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.textView becomeFirstResponder];
 }
 
 - (void)dismissSelf
@@ -59,17 +70,75 @@
 {
     ARCoreDataStack *coreDataStack = [ARCoreDataStack defaultStack];
     ARDiaryEntry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"ARDiaryEntry" inManagedObjectContext:coreDataStack.managedObjectContext];      // Inserts new entity in to core data stack environment
-    entry.body = self.textField.text;
+    entry.body = self.textView.text;
     entry.date = [[NSDate date] timeIntervalSince1970];
+    entry.imageData = UIImageJPEGRepresentation(self.pickedImage, 0.75);
     [coreDataStack saveContext];
 }
 
 - (void)updateDiaryEntry
 {
-    self.entry.body = self.textField.text;
+    self.entry.body = self.textView.text;
+    
+    self.entry.imageData = UIImageJPEGRepresentation(self.pickedImage, 0.75);
     
     ARCoreDataStack *coreDataStack = [ARCoreDataStack defaultStack];
     [coreDataStack saveContext];
+}
+
+- (void)promptForSource
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Image Source"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Camera", @"Camera Roll", nil];
+    [actionSheet showInView:self.view];
+}
+
+# pragma mark - Action sheet delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex != actionSheet.cancelButtonIndex) {
+        if (buttonIndex != actionSheet.firstOtherButtonIndex) {
+            [self promptForCamera];
+        } else {
+            [self promptForPhotoLibrary];
+        }
+    }
+}
+
+- (void)promptForCamera
+{
+    UIImagePickerController *controller = [UIImagePickerController new];
+    controller.sourceType = UIImagePickerControllerSourceTypeCamera;
+    controller.delegate = self;
+    
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)promptForPhotoLibrary
+{
+    UIImagePickerController *controller = [UIImagePickerController new];
+    controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    controller.delegate = self;
+    
+    [self presentViewController:controller animated:YES completion:nil];
+}
+# pragma mark - Image picker controller delegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    self.pickedImage = image;
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)setPickedMood:(enum ARDiaryEntryMood)pickedMood
@@ -91,6 +160,19 @@
         case ARDiaryEntryMoodBad:
             self.badButton.alpha = 1.0f;
             break;
+    }
+}
+
+- (void)setPickedImage:(UIImage *)pickedImage
+{
+    // Over ride pickedImage setter
+    
+    _pickedImage = pickedImage;
+    
+    if (pickedImage == nil) {
+        [self.imageButton setImage:[UIImage imageNamed:@"icn_noimage"] forState:UIControlStateNormal];
+    } else {
+        [self.imageButton setImage:pickedImage forState:UIControlStateNormal];
     }
 }
 
@@ -124,6 +206,14 @@
     self.pickedMood = ARDiaryEntryMoodGood;
 }
 
+- (IBAction)imageButtonWasPressed:(id)sender
+{
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [self promptForSource];
+    } else  {
+        [self promptForPhotoLibrary];
+    }
+}
 
 @end
 
