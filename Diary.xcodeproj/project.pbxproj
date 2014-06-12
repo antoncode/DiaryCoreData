@@ -11,6 +11,7 @@
 		3A692BFB19496BD60041C747 /* ARNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A692BFA19496BD60041C747 /* ARNavigationController.m */; };
 		3A692BFE19496FD00041C747 /* AREntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A692BFD19496FD00041C747 /* AREntryCell.m */; };
 		3A692C00194A1B590041C747 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A692BFF194A1B580041C747 /* QuartzCore.framework */; };
+		3A692C02194A1D050041C747 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A692C01194A1D050041C747 /* CoreLocation.framework */; };
 		3A7CE76219480E8900BF5BDE /* AREntryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CE76119480E8900BF5BDE /* AREntryListTableViewController.m */; };
 		3ABC8A0C19451A0200C89841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC8A0B19451A0200C89841 /* Foundation.framework */; };
 		3ABC8A0E19451A0200C89841 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC8A0D19451A0200C89841 /* CoreGraphics.framework */; };
@@ -50,6 +51,7 @@
 		3A692BFC19496FD00041C747 /* AREntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREntryCell.h; sourceTree = "<group>"; };
 		3A692BFD19496FD00041C747 /* AREntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREntryCell.m; sourceTree = "<group>"; };
 		3A692BFF194A1B580041C747 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3A692C01194A1D050041C747 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3A7CE76019480E8900BF5BDE /* AREntryListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREntryListTableViewController.h; sourceTree = "<group>"; };
 		3A7CE76119480E8900BF5BDE /* AREntryListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREntryListTableViewController.m; sourceTree = "<group>"; };
 		3ABC8A0819451A0200C89841 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A692C02194A1D050041C747 /* CoreLocation.framework in Frameworks */,
 				3A692C00194A1B590041C747 /* QuartzCore.framework in Frameworks */,
 				3ABC8A0E19451A0200C89841 /* CoreGraphics.framework in Frameworks */,
 				3ABC8A1219451A0200C89841 /* CoreData.framework in Frameworks */,
@@ -126,6 +129,7 @@
 		3ABC8A0A19451A0200C89841 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A692C01194A1D050041C747 /* CoreLocation.framework */,
 				3A692BFF194A1B580041C747 /* QuartzCore.framework */,
 				3ABC8A0B19451A0200C89841 /* Foundation.framework */,
 				3ABC8A0D19451A0200C89841 /* CoreGraphics.framework */,

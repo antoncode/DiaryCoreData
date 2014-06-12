@@ -27,13 +27,13 @@
 {
     const CGFloat topMargin = 35.0f;
     const CGFloat bottomMargin = 80.0f;
-    const CGFloat minHeight = 106.0f;
+    const CGFloat minHeight = 71.0f;
     
     UIFont *font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
     
     // determines the amount of space required to draw a given piece of text using the specified contraints.
     CGRect boundingBox = [entry.body boundingRectWithSize:CGSizeMake(202, CGFLOAT_MAX)
-                                                  options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin)
+                                                  options:(NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin)
                                                attributes:@{NSFontAttributeName: font}
                                                   context:nil];
     
@@ -66,6 +66,12 @@
     }
     
     self.mainImageView.layer.cornerRadius = CGRectGetWidth(self.mainImageView.frame) / 2.0f;
+    
+    if (entry.location.length > 0) {
+        self.locationLabel.text = entry.location;
+    } else {
+        self.locationLabel.text = @"No location";
+    }
 }
 
 @end

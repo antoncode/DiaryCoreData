@@ -12,6 +12,7 @@
 
 @interface AREntryCell : UITableViewCell
 
+// Cell should be responsible for laying itself out, not the table view controller
 + (CGFloat)heightForEntry:(ARDiaryEntry *)entry;
 
 - (void)configureCellForEntry:(ARDiaryEntry *)entry;
